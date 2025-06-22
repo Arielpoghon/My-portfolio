@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from "react";
+
+export default function Portfolio() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
+
+  return (
+    <div className={`min-h-screen ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"} font-sans`}>
+      {/* Toggle Theme Button */}
+      <div className="text-right px-4 pt-4">
+        <button
+          onClick={() => setIsDark(!isDark)}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md"
+        >
+          Toggle {isDark ? "Light" : "Dark"} Mode
+        </button>
+      </div>
+
+      {/* Hero Section */}
+      <section className="text-center py-16 px-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Ariel Mnang'at Poghon</h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+          Full-Stack Software Developer & Junior Cybersecurity Analyst at Kisii University
+        </p>
+      </section>
+
+      {/* About Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">About Me</h2>
+        <p className="text-gray-300 dark:text-gray-700">
+          I'm Ariel Mnang'at Poghon, a passionate developer with one year of experience in frontend and backend development, currently working at Kisii University. I specialize in building secure, modern applications and have completed multiple certifications in cybersecurity including access control, antivirus, cryptography, and network fundamentals. I'm open to freelance work, internships, and collaboration.
+        </p>
+      </section>
+
+      {/* Skills Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+        <ul className="list-disc list-inside text-gray-300 dark:text-gray-700">
+          <li>Frontend: HTML, CSS, JavaScript, React</li>
+          <li>Backend: Node.js, Express</li>
+          <li>Cybersecurity: Access Control, Firewalls, IDS, Cryptography</li>
+        </ul>
+      </section>
+
+      {/* Projects Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-bold">Trendy Goods Hub</h3>
+            <p className="text-gray-400">An online eCommerce UI showcase.</p>
+            <a href="https://trendygoodshub.netlify.app/" className="text-blue-400 mr-4" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/Arielpoghon" className="text-blue-400" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold">Socrates Game Hub</h3>
+            <p className="text-gray-400">A minimalistic hub for games with clean UI.</p>
+            <a href="https://socrates-gamehub.netlify.app/" className="text-blue-400 mr-4" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/Arielpoghon" className="text-blue-400" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold">Fiutterwave Mock</h3>
+            <p className="text-gray-400">A Flutterwave-like UI concept.</p>
+            <a href="https://fiutterwave.netlify.app/" className="text-blue-400 mr-4" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/Arielpoghon" className="text-blue-400" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {[...Array(10)].map((_, i) => (
+            <a
+              key={i}
+              href="https://images.ctfassets.net/kvf8rpi09wgk/7a9Hi5dmSSnzuNJqMTcqUC/5264b28124e7ec8087d82c771a3f84bb/Cybrary-Cert.png?h=200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://images.ctfassets.net/kvf8rpi09wgk/7a9Hi5dmSSnzuNJqMTcqUC/5264b28124e7ec8087d82c771a3f84bb/Cybrary-Cert.png?h=200"
+                alt={`Certification ${i + 1}`}
+                className="w-full rounded shadow-md hover:scale-105 transition-transform"
+              />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+        <p className="text-gray-300">Email: <a href="mailto:mnangatariel27@gmail.com" className="text-blue-400">mnangatariel27@gmail.com</a></p>
+        <p className="text-gray-300">WhatsApp: <a href="https://wa.me/254104115234" className="text-blue-400">+254104115234</a></p>
+      </section>
+    </div>
+  );
+}
